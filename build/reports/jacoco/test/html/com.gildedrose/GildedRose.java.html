@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GildedRose.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gilded-rose-kata</a> &gt; <a href="index.source.html" class="el_package">com.gildedrose</a> &gt; <span class="el_source">GildedRose.java</span></div><h1>GildedRose.java</h1><pre class="source lang-java linenums">package com.gildedrose;
+
+class GildedRose {
+	Item[] items;
+
+<span class="fc" id="L6">	public GildedRose(Item[] items) {</span>
+<span class="fc" id="L7">		this.items = items;</span>
+<span class="fc" id="L8">	}</span>
+
+	public void updateQuality() { // changement de qualité pour chaque jour
+<span class="fc bfc" id="L11" title="All 2 branches covered.">		for (int i = 0; i &lt; items.length; i++) { // parcours de tous les items</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">			if (!items[i].name.equals(&quot;Aged Brie&quot;)</span>
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">					&amp;&amp; !items[i].name.equals(&quot;Backstage passes to a TAFKAL80ETC concert&quot;)) {</span>
+					// si ce n'est pas l'item &quot;Agent Brie&quot; 
+					// et ce n'est pas l'item &quot;Backstage passes&quot;
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">				if (items[i].quality &gt; 0) { // si sa qualité est &gt; 0</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">					if (!items[i].name.equals(&quot;Sulfuras, Hand of Ragnaros&quot;)) { //  </span>
+<span class="nc" id="L18">						items[i].quality = items[i].quality - 1;</span>
+					}
+				}
+			} else { // si c'est l'item &quot;Agent Brie&quot; ou l'item &quot;Backstage passes&quot;
+<span class="fc bfc" id="L22" title="All 2 branches covered.">				if (items[i].quality &lt; 50) { // si la qualité est &lt; 50 (elle ne peut dépasser)</span>
+<span class="fc" id="L23">					items[i].quality = items[i].quality + 1; // incrémente la qualité</span>
+
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">					if (items[i].name.equals(&quot;Backstage passes to a TAFKAL80ETC concert&quot;)) { // si c'est l'item &quot;Backstage passes&quot;</span>
+					
+						// la qualité augmente de 2 quand il reste 10 jours ou moins
+<span class="nc bnc" id="L28" title="All 2 branches missed.">						if (items[i].sellIn &lt; 11) { </span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">							if (items[i].quality &lt; 50) { // vérif si qualité peut augmenter</span>
+<span class="nc" id="L30">								items[i].quality = items[i].quality + 1;</span>
+							}
+						}
+						
+						// et de 3 quand il reste 5 jours ou moins (mais la qualité tombe à 0 après le concert)
+<span class="nc bnc" id="L35" title="All 2 branches missed.">						if (items[i].sellIn &lt; 6) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">							if (items[i].quality &lt; 50) { // vérif si qualité peut augmenter</span>
+<span class="nc" id="L37">								items[i].quality = items[i].quality + 1;</span>
+							}
+						}
+					}
+				}
+			}
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">			if (!items[i].name.equals(&quot;Sulfuras, Hand of Ragnaros&quot;)) { // si ce n'est pas l'item légendaire &quot;Sulfuras&quot; (il ne se périme pas)</span>
+<span class="fc" id="L45">				items[i].sellIn = items[i].sellIn - 1; // décrémente le nombre de jours restant pour vendre l'item</span>
+			}
+
+<span class="fc bfc" id="L48" title="All 2 branches covered.">			if (items[i].sellIn &lt; 0) {</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">				if (!items[i].name.equals(&quot;Aged Brie&quot;)) {</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">					if (!items[i].name.equals(&quot;Backstage passes to a TAFKAL80ETC concert&quot;)) {</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">						if (items[i].quality &gt; 0) { </span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">							if (!items[i].name.equals(&quot;Sulfuras, Hand of Ragnaros&quot;)) {</span>
+<span class="nc" id="L53">								items[i].quality = items[i].quality - 1; // décrémente la qualité</span>
+							}
+						}
+					} else {
+<span class="nc" id="L57">						items[i].quality = items[i].quality - items[i].quality; //items[i].quality = 0 ?</span>
+					}
+				} else {
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">					if (items[i].quality &lt; 50) { // vérif si qualité peut augmenter</span>
+<span class="fc" id="L61">						items[i].quality = items[i].quality + 1; // incrémente la qualité</span>
+						// ici pour le Aged Brie périmé elle est incrémentée une 2e fois
+					}
+				}
+			}
+		}
+<span class="fc" id="L67">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

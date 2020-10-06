@@ -1,0 +1,151 @@
+REFACTORING
+
+Notion de dette technique/technical debt :sur le coup on peut faire un code rapide mais au final ça aura un impact negatif 
+
+
+Règle de 3 : quand on commence à faire quelque chose pour la 3eme fois ( ou plus donc) -> refactoriser 
+
+Code propre : 
+-évident pour les autres programmeurs.
+-ne contient pas de duplication.
+-contient un nombre minimal de classes et d'autres pièces mobiles.
+-passe tous les tests
+-est plus facile et moins coûteux à entretenir!
+
+
+
+Avant tout : mettre le code au propre ( indentation)
+
+Aucune nouvelle fonctionnalité ne doit être créée lors de la refactorisation.
+
+Tous les tests existants doivent réussir après la refactorisation.
+
+
+
+METHODES DE COMPOSITIONS 
+
+Pour rationaliser les méthodes, supprimer la duplication de code et ouvrir la voie à de futures améliorations.
+
+Methode d'extraction : 
+
+Vous avez un fragment de code qui peut être regroupé. 
+--> Déplacez ce code vers une nouvelle méthode (ou fonction) distincte et remplacez l'ancien code par un appel à la méthode.
+
+Probleme : 
+void  printOwing ( )  { 
+printBanner ( ) ; // Imprimer les détails. 
+Système . dehors . println ( "nom:" + nom ) ; 
+Système . dehors . println ( "montant:" + getOutstanding ( ) ) ; 
+}
+
+Solution : 
+void  printOwing ( )  { 
+printBanner ( ) ;
+printDetails ( getOutstanding ( ) ) ; } 
+void printDetails ( double exceptionnel ) { 
+System . dehors . println ( "nom:" + nom ) ;
+Système . dehors . println ( "montant:" + impayé ) ; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+GUILDED ROSE : 
+
+2 classes: 
+guilded rose ---> methode UpdateQuality() // pleins de if 
+ item ---> 3 atributs : name , SellIn , Quality + méthode toString() //methode inutilisée
+
+CONTRAINTE : Ne pas toucher à item
+
+
+https://medium.com/@gabriellamedas/the-gilded-rose-refactoring-kata-2dd2d6f52601
+
+-Créer des fonctions pour les morceaux de codes pouvant se répeter , ça pourra aussi rendre le code plus claire car le nom de la fonction est bcp + explicit que du simple code 
+
+-!! Bien respecter le principe  Open-Closed ---> On doit pouvoir rester flexible si on ajoute un item
+
+-Dans notre cas : utiliser du POLYMORPHISME 
+
+
+-il a implementer une méthode updateState() dans une interface CustomisedItem
+ça donne 
+private CustomisedItem customisedItem(Item item) {
+    return new CustomisedItemFactory(item).customiseItem(item);
+}
+
+-a utilisé une Factory Class  appelée CustomisedItemFactory et où la méthode customiseItem() a renvoyé un nouveau CustomisedItem en fonction de l'objet Item passé en argument à la méthode :
+
+
+https://translate.google.com/translate?hl=fr&sl=en&u=https://dzone.com/articles/lesson-learned-from-gilded-rose-kata&prev=search&pto=aue
+
+Cela permet de remplacer la chaîne if-else if-else par un itemStrategyMap
+
+
+https://www.arolla.fr/blog/2019/10/man-vs-legacy-gilded-rose-1/
+
+-outil automatique qui, lors de l’exécution des tests, va marquer le code de production de la façon suivante :
+
+    les lignes de code exécutées au moins une fois par les tests apparaissent en vert
+    les autres lignes apparaissent en rouge
+
+
+https://www.arolla.fr/blog/2019/11/man-vs-legacy-gilded-rose-2/
+
+
+CF tableau avec les if --> On supprime d'abbord les NOT ,et après les OR 
+
+-private void decreaseQuality() {
+   if (item.quality > 0) {
+       item.quality = item.quality - 1;
+   }
+}
+
+-Même logique pour increaseQuality()
+
+
+-Pour backstage pass:  pour savoir si on doit augmenter de +1 , +2 ou +3 : de base on augmente de 1 et après on fait ça 
+
+item.sellIn = item.sellIn - 1;
+if (item.sellIn < 10) increaseQuality(item);
+if (item.sellIn < 5) increaseQuality(item);
+
+-déléguer la mise à jour des articles à une classe ItemUpdater
+-Faire des switch
+-mettre en oeuvre un pattern Strategy basé sur le nom des article
+
+
+https://translate.google.com/translate?hl=fr&sl=en&u=https://dev.to/sandordargo/gilded-rose-kata-revisited-4eh&prev=search&pto=aue
+
+-extraction du corps de la boucle for
+-ntroduisons un grand if-else.
+-déplacer les mises à jour vers la classe Item
+-Implémentez le comportement de l'élément spécial "Sulfuras, Main de Ragnaros" ( Si c'est Sulfuras:  on fait rien  , on peut aussi faire !Sulfuras et on passe au suivant)
+-Implémentez le comportement pour Aged Brie
+
+-Dans le constructeur de la Itemclasse, ou dans une méthode qui est appelée depuis le constructeur, en fonction du nom de l'élément, un Updater sera créé.
+
+Ensuite, Item::updateQuality()et Item::updateSellIn()déléguera le travail aux Updateméthodes correspondantes de la classe.
+
+-Créez les classes Updater pour le reste
+
+-supprimer la branche d'origine du code
+
+	GildedRose::processItemce qui n'était pas nécessaire, mais je ne voulais pas y toucher. 	Au lieu de cela, je le supprime complètement maintenant.
+
+	void GildedRose::processItem(Item& item)
+	{
+ 	 item.updateSellIn();
+ 	 item.updateQuality();
+	}
+
+- "Nettoyer le code " CF SITE 
+  

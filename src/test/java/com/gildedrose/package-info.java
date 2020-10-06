@@ -1,0 +1,5 @@
+/**
+ * Infos...
+ */
+
+package com.gildedrose;
