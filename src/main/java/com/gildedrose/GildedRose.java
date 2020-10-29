@@ -24,7 +24,7 @@ class GildedRose {
   }
 
   private void decrementQuality(Item item, int n) {
-    if (!item.name.equals(SULFURAS) && (item.quality > 0)) {
+    if (item.quality > 0) {
       item.quality -= n;
     }
   }
@@ -35,37 +35,58 @@ class GildedRose {
     }
   }
 
+  private void updateAgedBrie(Item item) {
+    if (item.sellIn < 0) {
+      incrementQuality(item, 2);
+    } else {
+      incrementQuality(item, 1);
+    }
+  }
+
+  private void updateBackstagePasses(Item item) {
+    if (item.sellIn < 0) {
+      item.quality = 0;
+    } else if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
+      incrementQuality(item, 3);
+    } else if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
+      incrementQuality(item, 2);
+    } else {
+      incrementQuality(item, 1);
+    }
+  }
+
+  private void updateDefault(Item item) {
+    if (item.sellIn < 0) {
+      decrementQuality(item, 2);
+    } else {
+      decrementQuality(item, 1);
+    }
+  }
+
+  private void updateOne(Item item) {
+    decrementSellIn(item);
+
+    switch (item.name) {
+      case AGED_BRIE:
+        updateAgedBrie(item);
+        break;
+
+      case BACKSTAGE_PASSES:
+        updateBackstagePasses(item);
+        break;
+
+      case SULFURAS:
+        break;
+
+      default:
+        updateDefault(item);
+    }
+  }
+
   // changements sur la qualité de tous les items pour 1 jour
   public void updateQuality() {
     for (Item item : items) {
-    // parcours de tous les items
-      decrementSellIn(item);
-
-      if (item.name.equals(AGED_BRIE)) {
-        // si c'est l'item "Aged Brie" ou l'item "Backstage passes"
-        if (item.sellIn < 0) {
-          incrementQuality(item, 2);
-        } else {
-          incrementQuality(item, 1);
-        }
-      } else if (item.name.equals(BACKSTAGE_PASSES)) {
-        if (item.sellIn < 0) {
-          item.quality = 0;
-        } else if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
-          incrementQuality(item, 3);
-        } else if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
-          incrementQuality(item, 2);
-        } else {
-          incrementQuality(item, 1);
-        }
-      } else {
-        // si ce n'est ni l'item "Aged Brie" ni l'item "Backstage passes"
-        if (item.sellIn < 0) {
-          decrementQuality(item, 2);
-        } else {
-          decrementQuality(item, 1);
-        }
-      }
+      updateOne(item);
     }
   }
 }

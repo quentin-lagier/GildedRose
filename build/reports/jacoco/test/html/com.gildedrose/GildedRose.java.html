@@ -24,7 +24,7 @@ class GildedRose {
 <span class="fc" id="L24">  }</span>
 
   private void decrementQuality(Item item, int n) {
-<span class="fc bfc" id="L27" title="All 4 branches covered.">    if (!item.name.equals(SULFURAS) &amp;&amp; (item.quality &gt; 0)) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">    if (item.quality &gt; 0) {</span>
 <span class="fc" id="L28">      item.quality -= n;</span>
     }
 <span class="fc" id="L30">  }</span>
@@ -35,38 +35,59 @@ class GildedRose {
     }
 <span class="fc" id="L36">  }</span>
 
+  private void updateAgedBrie(Item item) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">    if (item.sellIn &lt; 0) {</span>
+<span class="fc" id="L40">      incrementQuality(item, 2);</span>
+    } else {
+<span class="fc" id="L42">      incrementQuality(item, 1);</span>
+    }
+<span class="fc" id="L44">  }</span>
+
+  private void updateBackstagePasses(Item item) {
+<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (item.sellIn &lt; 0) {</span>
+<span class="fc" id="L48">      item.quality = 0;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">    } else if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT3) {</span>
+<span class="fc" id="L50">      incrementQuality(item, 3);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    } else if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT2) {</span>
+<span class="fc" id="L52">      incrementQuality(item, 2);</span>
+    } else {
+<span class="fc" id="L54">      incrementQuality(item, 1);</span>
+    }
+<span class="fc" id="L56">  }</span>
+
+  private void updateDefault(Item item) {
+<span class="fc bfc" id="L59" title="All 2 branches covered.">    if (item.sellIn &lt; 0) {</span>
+<span class="fc" id="L60">      decrementQuality(item, 2);</span>
+    } else {
+<span class="fc" id="L62">      decrementQuality(item, 1);</span>
+    }
+<span class="fc" id="L64">  }</span>
+
+  private void updateOne(Item item) {
+<span class="fc" id="L67">    decrementSellIn(item);</span>
+
+<span class="fc bfc" id="L69" title="All 4 branches covered.">    switch (item.name) {</span>
+      case AGED_BRIE:
+<span class="fc" id="L71">        updateAgedBrie(item);</span>
+<span class="fc" id="L72">        break;</span>
+
+      case BACKSTAGE_PASSES:
+<span class="fc" id="L75">        updateBackstagePasses(item);</span>
+<span class="fc" id="L76">        break;</span>
+
+      case SULFURAS:
+<span class="fc" id="L79">        break;</span>
+
+      default:
+<span class="fc" id="L82">        updateDefault(item);</span>
+    }
+<span class="fc" id="L84">  }</span>
+
   // changements sur la qualité de tous les items pour 1 jour
   public void updateQuality() {
-<span class="fc bfc" id="L40" title="All 2 branches covered.">    for (Item item : items) {</span>
-    // parcours de tous les items
-<span class="fc" id="L42">      decrementSellIn(item);</span>
-
-<span class="fc bfc" id="L44" title="All 2 branches covered.">      if (item.name.equals(AGED_BRIE)) {</span>
-        // si c'est l'item &quot;Aged Brie&quot; ou l'item &quot;Backstage passes&quot;
-<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (item.sellIn &lt; 0) {</span>
-<span class="fc" id="L47">          incrementQuality(item, 2);</span>
-        } else {
-<span class="fc" id="L49">          incrementQuality(item, 1);</span>
-        }
-<span class="fc bfc" id="L51" title="All 2 branches covered.">      } else if (item.name.equals(BACKSTAGE_PASSES)) {</span>
-<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (item.sellIn &lt; 0) {</span>
-<span class="fc" id="L53">          item.quality = 0;</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">        } else if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT3) {</span>
-<span class="fc" id="L55">          incrementQuality(item, 3);</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        } else if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT2) {</span>
-<span class="fc" id="L57">          incrementQuality(item, 2);</span>
-        } else {
-<span class="fc" id="L59">          incrementQuality(item, 1);</span>
-        }
-      } else {
-        // si ce n'est ni l'item &quot;Aged Brie&quot; ni l'item &quot;Backstage passes&quot;
-<span class="fc bfc" id="L63" title="All 2 branches covered.">        if (item.sellIn &lt; 0) {</span>
-<span class="fc" id="L64">          decrementQuality(item, 2);</span>
-        } else {
-<span class="fc" id="L66">          decrementQuality(item, 1);</span>
-        }
-      }
+<span class="fc bfc" id="L88" title="All 2 branches covered.">    for (Item item : items) {</span>
+<span class="fc" id="L89">      updateOne(item);</span>
     }
-<span class="fc" id="L70">  }</span>
+<span class="fc" id="L91">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
