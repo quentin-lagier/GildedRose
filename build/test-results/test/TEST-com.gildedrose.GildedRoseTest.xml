@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gildedrose.GildedRoseTest" tests="41" skipped="0" failures="0" errors="0" timestamp="2020-10-29T15:12:15" hostname="PC-Quentin" time="0.137">
+<testsuite name="com.gildedrose.GildedRoseTest" tests="41" skipped="0" failures="0" errors="0" timestamp="2020-10-29T15:33:17" hostname="PC-Quentin" time="0.117">
   <properties/>
-  <testcase name="agedBrieQualityMax50P1()" classname="com.gildedrose.GildedRoseTest" time="0.089"/>
+  <testcase name="agedBrieQualityMax50P1()" classname="com.gildedrose.GildedRoseTest" time="0.084"/>
   <testcase name="agedBrieQualityMax50P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesQualityIncrementBy1P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesQualityIncrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="backstagePassesQualityIncrementBy2P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="backstagePassesQualityIncrementBy2P1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
   <testcase name="backstagePassesQualityIncrementBy2P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesQualityIncrementBy3P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="backstagePassesQualityIncrementBy3P2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="basicItemQualityNonZero1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="backstagePassesQualityIncrementBy3P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="basicItemQualityNonZero1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="basicItemQualityNonZero2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
   <testcase name="sulfurasQualityInchanged1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
   <testcase name="sulfurasQualityInchanged2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="sulfurasQualityInchanged3()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="sulfurasQualityInchanged3()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="sulfurasQualityInchanged4()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="basicItemSellInDecrementBy1P1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="basicItemSellInDecrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="basicItemSellInDecrementBy1P3()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="basicItemSellInDecrementBy1P4()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
-  <testcase name="basicItemQualityDecrementBy1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="basicItemSellInDecrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="basicItemSellInDecrementBy1P3()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="basicItemSellInDecrementBy1P4()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="basicItemQualityDecrementBy1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
   <testcase name="basicItemQualityDecrementBy2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="backstagePassesQualityMax50P1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="backstagePassesQualityMax50P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesQualityMax50P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesQualityMax50P3()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="agedBrieQualityIncrementBy1P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="agedBrieQualityIncrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="agedBrieQualityIncrementBy2P1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="agedBrieQualityIncrementBy2P2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="agedBrieSellInDecrementBy1P1()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="agedBrieQualityIncrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="agedBrieQualityIncrementBy2P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="agedBrieQualityIncrementBy2P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="agedBrieSellInDecrementBy1P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="agedBrieSellInDecrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="agedBrieSellInDecrementBy1P3()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="agedBrieSellInDecrementBy1P4()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="sulfurasSellInInchanged1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="sulfurasSellInInchanged2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="sulfurasSellInInchanged3()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="sulfurasSellInInchanged4()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
+  <testcase name="sulfurasSellInInchanged2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="sulfurasSellInInchanged3()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="sulfurasSellInInchanged4()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesSellInDecrementBy1P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
-  <testcase name="backstagePassesSellInDecrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="backstagePassesSellInDecrementBy1P3()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
-  <testcase name="backstagePassesSellInDecrementBy1P4()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="backstagePassesSellInDecrementBy1P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="backstagePassesSellInDecrementBy1P3()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
+  <testcase name="backstagePassesSellInDecrementBy1P4()" classname="com.gildedrose.GildedRoseTest" time="0.001"/>
   <testcase name="backstagePassesQualityIs0P1()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <testcase name="backstagePassesQualityIs0P2()" classname="com.gildedrose.GildedRoseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

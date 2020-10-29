@@ -11,7 +11,7 @@ class GildedRoseTest {
   static final String BASIC_ITEM = "Basic item";
 
   /******************************
-  * TESTS SUR LA VALEUR QUALITY * // remplacer quality <= 0 ? car < 0, reste < 0
+  * TESTS SUR LA VALEUR QUALITY *
   ******************************/
 
   @Test
@@ -28,7 +28,7 @@ class GildedRoseTest {
   }
 
   @Test
-  // La quality des items basiques ne peut être inférieure à 0 (elle reste 0) / quality < 0, sellIn > 0
+  // La quality des items basiques ne peut être inférieure à 0 (elle reste 0) / quality <= 0, sellIn > 0
   void basicItemQualityNonZero1() {
     final int quality = 0;
     final int sellIn = 2;
@@ -54,7 +54,7 @@ class GildedRoseTest {
   }
 
   @Test
-  // La quality des items basiques ne peut être inférieure à 0 (elle reste 0) / quality < 0, sellIn < 0
+  // La quality des items basiques ne peut être inférieure à 0 (elle reste 0) / quality <= 0, sellIn < 0
   void basicItemQualityNonZero2() {
     final int quality = 0;
     final int sellIn = 0;
@@ -85,7 +85,7 @@ class GildedRoseTest {
   @Test
   // La quality de Sulfuras ne change pas / quality < 0, sellIn > 0
   void sulfurasQualityInchanged2() {
-    final int quality = 80;
+    final int quality = -80;
     final int sellIn = 1000;
     // doit être 80 selon les specs mais n'est pas vérifié dans le code
 
@@ -101,7 +101,7 @@ class GildedRoseTest {
   // La quality de Sulfuras ne change pas / quality > 0, sellIn < 0
   void sulfurasQualityInchanged3() {
     final int quality = 80;
-    final int sellIn = 1000;
+    final int sellIn = -1000;
     // doit être 80 selon les specs mais n'est pas vérifié dans le code
 
     final Item[] items = new Item[] {new Item(SULFURAS, sellIn, quality)};
@@ -115,8 +115,8 @@ class GildedRoseTest {
   @Test
   // La quality de Sulfuras ne change pas / quality < 0, sellIn < 0
   void sulfurasQualityInchanged4() {
-    final int quality = 80;
-    final int sellIn = 1000;
+    final int quality = -80;
+    final int sellIn = -1000;
     // doit être 80 selon les specs mais n'est pas vérifié dans le code
 
     final Item[] items = new Item[] {new Item(SULFURAS, sellIn, quality)};
@@ -372,7 +372,7 @@ class GildedRoseTest {
   }
 
   @Test
-  // Le sellIn des items basiques diminue de 1 / quality < 0, sellIn > 0
+  // Le sellIn des items basiques diminue de 1 / quality <= 0, sellIn > 0
   void basicItemSellInDecrementBy1P2() {
     final int quality = 0;
     final int sellIn = 2;
@@ -398,7 +398,7 @@ class GildedRoseTest {
   }
 
   @Test
-  // Le sellIn des items basiques diminue de 1 / quality < 0, sellIn < 0
+  // Le sellIn des items basiques diminue de 1 / quality <= 0, sellIn < 0
   void basicItemSellInDecrementBy1P4() {
     final int quality = 0;
     final int sellIn = 2;
