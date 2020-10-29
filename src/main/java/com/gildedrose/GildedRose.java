@@ -22,46 +22,40 @@ class GildedRose {
   }
 
   private void decrementQuality(Item item) {
-    if (item.name.equals(SULFURAS)) {
-      return;
-    }
-    if (item.quality > 0) {
+    if (!item.name.equals(SULFURAS) && (item.quality > 0)) {
       item.quality = item.quality - 1;
     }
   }
 
   private void decrementSellIn(Item item) {
-    if (item.name.equals(SULFURAS)) {
-      return;
+    if (!item.name.equals(SULFURAS)) {
+      item.sellIn = item.sellIn - 1;
     }
-    item.sellIn = item.sellIn - 1;
   }
 
   // changement de qualité pour chaque jour
   public void updateQuality() {
     for (Item item : items) {
     // parcours de tous les items
-      if (item.name.equals(AGED_BRIE) || item.name.equals(BACKSTAGE_PASSES)) {
+      if (item.name.equals(AGED_BRIE)) {
         // si c'est l'item "Agent Brie" ou l'item "Backstage passes"
         incrementQuality(item);
-        // incrémente la qualité
 
-        if (item.name.equals(BACKSTAGE_PASSES)) {
+      } else if (item.name.equals(BACKSTAGE_PASSES)) {
         // si c'est l'item "Backstage passes"
+        incrementQuality(item);
 
-          // la qualité augmente de 2 quand il reste 10 jours ou moins
-          if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
-            incrementQuality(item);
-          }
+        // la qualité augmente de 2 quand il reste 10 jours ou moins
+        if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
+          incrementQuality(item);
+        }
 
-          // et de 3 quand il reste 5 jours ou moins (mais la qualité tombe à 0 après le concert)
-          if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
-            incrementQuality(item);
-          }
+        // et de 3 quand il reste 5 jours ou moins (mais la qualité tombe à 0 après le concert)
+        if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
+          incrementQuality(item);
         }
       } else {
-        // si ce n'est pas l'item "Agent Brie"
-        // et ce n'est pas l'item "Backstage passes"
+        // si ce n'est ni l'item "Agent Brie" ni l'item "Backstage passes"
         decrementQuality(item);
       }
 

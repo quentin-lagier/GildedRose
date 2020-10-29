@@ -2,12 +2,7 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.23.0" timestamp="2020-10-29T17:43:14.364">
-<file name="/mnt/d/GildedRose/src/main/java/com/gildedrose/GildedRose.java">
-<violation beginline="61" endline="62" begincolumn="39" endcolumn="7" rule="EmptyIfStmt" ruleset="Error Prone" package="com.gildedrose" class="GildedRose" method="updateQuality" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#emptyifstmt" priority="3">
-Avoid empty if statements
-</violation>
-</file>
+    version="6.23.0" timestamp="2020-10-29T17:58:00.497">
 <file name="/mnt/d/GildedRose/src/main/java/com/gildedrose/Item.java">
 <violation beginline="5" endline="5" begincolumn="17" endcolumn="20" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="com.gildedrose" class="Item" variable="name" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
