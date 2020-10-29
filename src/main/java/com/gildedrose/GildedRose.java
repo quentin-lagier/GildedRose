@@ -19,19 +19,8 @@ class GildedRose {
   public void updateQuality() {
     for (Item item : items) {
     // parcours de tous les items
-      if (!item.name.equals(AGED_BRIE)
-          && !item.name.equals(BACKSTAGE_PASSES)) {
-          // si ce n'est pas l'item "Agent Brie"
-          // et ce n'est pas l'item "Backstage passes"
-        if (item.quality > 0) {
-        // si sa qualité est > 0
-          if (!item.name.equals(SULFURAS)) {
-          //
-            item.quality = item.quality - 1;
-          }
-        }
-      } else {
-      // si c'est l'item "Agent Brie" ou l'item "Backstage passes"
+      if (item.name.equals(AGED_BRIE) || item.name.equals(BACKSTAGE_PASSES)) {
+        // si c'est l'item "Agent Brie" ou l'item "Backstage passes"
         if (item.quality < QUALITY_MAX_VALUE) {
         // si la qualité est < 50 (elle ne peut dépasser)
           item.quality = item.quality + 1;
@@ -57,33 +46,44 @@ class GildedRose {
             }
           }
         }
+      } else {
+        // si ce n'est pas l'item "Agent Brie"
+        // et ce n'est pas l'item "Backstage passes"
+        if (item.quality > 0) {
+        // si sa qualité est > 0
+          if (item.name.equals(SULFURAS)) {
+          } else {
+            item.quality = item.quality - 1;
+          }
+        }
       }
 
-      if (!item.name.equals(SULFURAS)) {
-      // si ce n'est pas l'item légendaire "Sulfuras" (il ne se périme pas)
+      if (item.name.equals(SULFURAS)) {
+      } else {
+        // si ce n'est pas l'item légendaire "Sulfuras" (il ne se périme pas)
         item.sellIn = item.sellIn - 1;
         // décrémente le nombre de jours restant pour vendre l'item
       }
 
       if (item.sellIn < 0) {
-        if (!item.name.equals(AGED_BRIE)) {
-          if (!item.name.equals(BACKSTAGE_PASSES)) {
-            if (item.quality > 0) {
-              if (!item.name.equals(SULFURAS)) {
-                item.quality = item.quality - 1;
-                // décrémente la qualité
-              }
-            }
-          } else {
-            item.quality = item.quality - item.quality;
-            //item.quality = 0 ?
-          }
-        } else {
+        if (item.name.equals(AGED_BRIE)) {
           if (item.quality < QUALITY_MAX_VALUE) {
           // vérif si qualité peut augmenter
             item.quality = item.quality + 1;
             // incrémente la qualité
             // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
+          }
+        } else {
+          if (item.name.equals(BACKSTAGE_PASSES)) {
+            item.quality = 0;
+          } else {
+            if (item.quality > 0) {
+              if (item.name.equals(SULFURAS)) {
+              } else {
+                item.quality = item.quality - 1;
+                // décrémente la qualité
+              }
+            }
           }
         }
       }
