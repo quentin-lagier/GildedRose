@@ -19,71 +19,71 @@ class GildedRose {
   public void updateQuality() {
 <span class="fc bfc" id="L20" title="All 2 branches covered.">    for (Item item : items) {</span>
     // parcours de tous les items
-<span class="fc bfc" id="L22" title="All 2 branches covered.">      if (!item.name.equals(AGED_BRIE)</span>
-<span class="fc bfc" id="L23" title="All 2 branches covered.">          &amp;&amp; !item.name.equals(BACKSTAGE_PASSES)) {</span>
-          // si ce n'est pas l'item &quot;Agent Brie&quot;
-          // et ce n'est pas l'item &quot;Backstage passes&quot;
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (item.quality &gt; 0) {</span>
-        // si sa qualité est &gt; 0
-<span class="fc bfc" id="L28" title="All 2 branches covered.">          if (!item.name.equals(SULFURAS)) {</span>
-          //
-<span class="fc" id="L30">            item.quality = item.quality - 1;</span>
-          }
-        }
-      } else {
-      // si c'est l'item &quot;Agent Brie&quot; ou l'item &quot;Backstage passes&quot;
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
+<span class="fc bfc" id="L22" title="All 4 branches covered.">      if (item.name.equals(AGED_BRIE) || item.name.equals(BACKSTAGE_PASSES)) {</span>
+        // si c'est l'item &quot;Agent Brie&quot; ou l'item &quot;Backstage passes&quot;
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
         // si la qualité est &lt; 50 (elle ne peut dépasser)
-<span class="fc" id="L37">          item.quality = item.quality + 1;</span>
+<span class="fc" id="L26">          item.quality = item.quality + 1;</span>
           // incrémente la qualité
 
-<span class="fc bfc" id="L40" title="All 2 branches covered.">          if (item.name.equals(BACKSTAGE_PASSES)) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">          if (item.name.equals(BACKSTAGE_PASSES)) {</span>
           // si c'est l'item &quot;Backstage passes&quot;
 
             // la qualité augmente de 2 quand il reste 10 jours ou moins
-<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT2) {</span>
-<span class="fc bfc" id="L45" title="All 2 branches covered.">              if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">            if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT2) {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">              if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
               // vérif si qualité peut augmenter
-<span class="fc" id="L47">                item.quality = item.quality + 1;</span>
+<span class="fc" id="L36">                item.quality = item.quality + 1;</span>
               }
             }
 
             // et de 3 quand il reste 5 jours ou moins (mais la qualité tombe à 0 après le concert)
-<span class="fc bfc" id="L52" title="All 2 branches covered.">            if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT3) {</span>
-<span class="fc bfc" id="L53" title="All 2 branches covered.">              if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            if (item.sellIn &lt; BACKSTAGE_PASSES_SELLIN_LIMIT3) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">              if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
               // vérif si qualité peut augmenter
-<span class="fc" id="L55">                item.quality = item.quality + 1;</span>
+<span class="fc" id="L44">                item.quality = item.quality + 1;</span>
               }
             }
           }
         }
+      } else {
+        // si ce n'est pas l'item &quot;Agent Brie&quot;
+        // et ce n'est pas l'item &quot;Backstage passes&quot;
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (item.quality &gt; 0) {</span>
+        // si sa qualité est &gt; 0
+<span class="fc bfc" id="L54" title="All 2 branches covered.">          if (item.name.equals(SULFURAS)) {</span>
+          } else {
+<span class="fc" id="L56">            item.quality = item.quality - 1;</span>
+          }
+        }
       }
 
-<span class="fc bfc" id="L62" title="All 2 branches covered.">      if (!item.name.equals(SULFURAS)) {</span>
-      // si ce n'est pas l'item légendaire &quot;Sulfuras&quot; (il ne se périme pas)
+<span class="fc bfc" id="L61" title="All 2 branches covered.">      if (item.name.equals(SULFURAS)) {</span>
+      } else {
+        // si ce n'est pas l'item légendaire &quot;Sulfuras&quot; (il ne se périme pas)
 <span class="fc" id="L64">        item.sellIn = item.sellIn - 1;</span>
         // décrémente le nombre de jours restant pour vendre l'item
       }
 
 <span class="fc bfc" id="L68" title="All 2 branches covered.">      if (item.sellIn &lt; 0) {</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (!item.name.equals(AGED_BRIE)) {</span>
-<span class="fc bfc" id="L70" title="All 2 branches covered.">          if (!item.name.equals(BACKSTAGE_PASSES)) {</span>
-<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (item.quality &gt; 0) {</span>
-<span class="fc bfc" id="L72" title="All 2 branches covered.">              if (!item.name.equals(SULFURAS)) {</span>
-<span class="fc" id="L73">                item.quality = item.quality - 1;</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (item.name.equals(AGED_BRIE)) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">          if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
+          // vérif si qualité peut augmenter
+<span class="fc" id="L72">            item.quality = item.quality + 1;</span>
+            // incrémente la qualité
+            // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
+          }
+        } else {
+<span class="fc bfc" id="L77" title="All 2 branches covered.">          if (item.name.equals(BACKSTAGE_PASSES)) {</span>
+<span class="fc" id="L78">            item.quality = 0;</span>
+          } else {
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (item.quality &gt; 0) {</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">              if (item.name.equals(SULFURAS)) {</span>
+              } else {
+<span class="fc" id="L83">                item.quality = item.quality - 1;</span>
                 // décrémente la qualité
               }
             }
-          } else {
-<span class="fc" id="L78">            item.quality = item.quality - item.quality;</span>
-            //item.quality = 0 ?
-          }
-        } else {
-<span class="fc bfc" id="L82" title="All 2 branches covered.">          if (item.quality &lt; QUALITY_MAX_VALUE) {</span>
-          // vérif si qualité peut augmenter
-<span class="fc" id="L84">            item.quality = item.quality + 1;</span>
-            // incrémente la qualité
-            // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
           }
         }
       }

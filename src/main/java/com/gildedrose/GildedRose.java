@@ -9,41 +9,38 @@ class GildedRose {
   static final int BACKSTAGE_PASSES_SELLIN_LIMIT2 = 11;
   static final int BACKSTAGE_PASSES_SELLIN_LIMIT3 = 6;
 
-  Item[] items;
+  transient Item[] items;
 
   GildedRose(Item[] itemsList) {
     this.items = itemsList;
   }
-
+  
+  private void incrementQuality(Item item) {
+    if (item.quality < QUALITY_MAX_VALUE) {
+      item.quality = item.quality + 1;
+    }
+  }
+  
   // changement de qualité pour chaque jour
   public void updateQuality() {
     for (Item item : items) {
     // parcours de tous les items
       if (item.name.equals(AGED_BRIE) || item.name.equals(BACKSTAGE_PASSES)) {
         // si c'est l'item "Agent Brie" ou l'item "Backstage passes"
-        if (item.quality < QUALITY_MAX_VALUE) {
-        // si la qualité est < 50 (elle ne peut dépasser)
-          item.quality = item.quality + 1;
-          // incrémente la qualité
+        incrementQuality(item);
+        // incrémente la qualité
 
-          if (item.name.equals(BACKSTAGE_PASSES)) {
-          // si c'est l'item "Backstage passes"
+        if (item.name.equals(BACKSTAGE_PASSES)) {
+        // si c'est l'item "Backstage passes"
 
-            // la qualité augmente de 2 quand il reste 10 jours ou moins
-            if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
-              if (item.quality < QUALITY_MAX_VALUE) {
-              // vérif si qualité peut augmenter
-                item.quality = item.quality + 1;
-              }
-            }
+          // la qualité augmente de 2 quand il reste 10 jours ou moins
+          if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
+            incrementQuality(item);
+          }
 
-            // et de 3 quand il reste 5 jours ou moins (mais la qualité tombe à 0 après le concert)
-            if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
-              if (item.quality < QUALITY_MAX_VALUE) {
-              // vérif si qualité peut augmenter
-                item.quality = item.quality + 1;
-              }
-            }
+          // et de 3 quand il reste 5 jours ou moins (mais la qualité tombe à 0 après le concert)
+          if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
+            incrementQuality(item);
           }
         }
       } else {
@@ -67,12 +64,8 @@ class GildedRose {
 
       if (item.sellIn < 0) {
         if (item.name.equals(AGED_BRIE)) {
-          if (item.quality < QUALITY_MAX_VALUE) {
-          // vérif si qualité peut augmenter
-            item.quality = item.quality + 1;
-            // incrémente la qualité
-            // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
-          }
+          incrementQuality(item);
+		  // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
         } else {
           if (item.name.equals(BACKSTAGE_PASSES)) {
             item.quality = 0;

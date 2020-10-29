@@ -1,6 +1,6 @@
-com/gildedrose/TexttestFixture.java
- com.gildedrose.TexttestFixture
 com/gildedrose/package-info.java
  com.gildedrose.package-info
+com/gildedrose/TexttestFixture.java
+ com.gildedrose.TexttestFixture
 com/gildedrose/GildedRoseTest.java
  com.gildedrose.GildedRoseTest
