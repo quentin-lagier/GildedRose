@@ -2,15 +2,9 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.23.0" timestamp="2020-10-29T17:01:14.111">
+    version="6.23.0" timestamp="2020-10-29T17:43:14.364">
 <file name="/mnt/d/GildedRose/src/main/java/com/gildedrose/GildedRose.java">
-<violation beginline="54" endline="55" begincolumn="43" endcolumn="11" rule="EmptyIfStmt" ruleset="Error Prone" package="com.gildedrose" class="GildedRose" method="updateQuality" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#emptyifstmt" priority="3">
-Avoid empty if statements
-</violation>
 <violation beginline="61" endline="62" begincolumn="39" endcolumn="7" rule="EmptyIfStmt" ruleset="Error Prone" package="com.gildedrose" class="GildedRose" method="updateQuality" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#emptyifstmt" priority="3">
-Avoid empty if statements
-</violation>
-<violation beginline="81" endline="82" begincolumn="47" endcolumn="15" rule="EmptyIfStmt" ruleset="Error Prone" package="com.gildedrose" class="GildedRose" method="updateQuality" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#emptyifstmt" priority="3">
 Avoid empty if statements
 </violation>
 </file>

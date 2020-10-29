@@ -14,13 +14,29 @@ class GildedRose {
   GildedRose(Item[] itemsList) {
     this.items = itemsList;
   }
-  
+
   private void incrementQuality(Item item) {
     if (item.quality < QUALITY_MAX_VALUE) {
       item.quality = item.quality + 1;
     }
   }
-  
+
+  private void decrementQuality(Item item) {
+    if (item.name.equals(SULFURAS)) {
+      return;
+    }
+    if (item.quality > 0) {
+      item.quality = item.quality - 1;
+    }
+  }
+
+  private void decrementSellIn(Item item) {
+    if (item.name.equals(SULFURAS)) {
+      return;
+    }
+    item.sellIn = item.sellIn - 1;
+  }
+
   // changement de qualité pour chaque jour
   public void updateQuality() {
     for (Item item : items) {
@@ -46,37 +62,20 @@ class GildedRose {
       } else {
         // si ce n'est pas l'item "Agent Brie"
         // et ce n'est pas l'item "Backstage passes"
-        if (item.quality > 0) {
-        // si sa qualité est > 0
-          if (item.name.equals(SULFURAS)) {
-          } else {
-            item.quality = item.quality - 1;
-          }
-        }
+        decrementQuality(item);
       }
 
-      if (item.name.equals(SULFURAS)) {
-      } else {
-        // si ce n'est pas l'item légendaire "Sulfuras" (il ne se périme pas)
-        item.sellIn = item.sellIn - 1;
-        // décrémente le nombre de jours restant pour vendre l'item
-      }
+      decrementSellIn(item);
 
       if (item.sellIn < 0) {
         if (item.name.equals(AGED_BRIE)) {
           incrementQuality(item);
-		  // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
+          // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
         } else {
           if (item.name.equals(BACKSTAGE_PASSES)) {
             item.quality = 0;
           } else {
-            if (item.quality > 0) {
-              if (item.name.equals(SULFURAS)) {
-              } else {
-                item.quality = item.quality - 1;
-                // décrémente la qualité
-              }
-            }
+            decrementQuality(item);
           }
         }
       }
