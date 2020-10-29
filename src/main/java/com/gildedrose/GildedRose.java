@@ -23,9 +23,9 @@ class GildedRose {
     }
   }
 
-  private void decrementQuality(Item item) {
+  private void decrementQuality(Item item, int n) {
     if (!item.name.equals(SULFURAS) && (item.quality > 0)) {
-      item.quality -= 1;
+      item.quality -= n;
     }
   }
 
@@ -35,40 +35,35 @@ class GildedRose {
     }
   }
 
-  // changement de qualité pour chaque jour
+  // changements sur la qualité de tous les items pour 1 jour
   public void updateQuality() {
     for (Item item : items) {
     // parcours de tous les items
-      if (item.name.equals(AGED_BRIE)) {
-        // si c'est l'item "Agent Brie" ou l'item "Backstage passes"
-        incrementQuality(item, 1);
-
-      } else if (item.name.equals(BACKSTAGE_PASSES)) {
-        // la qualité augmente de 2 quand il reste 10 jours ou moins
-        if (item.sellIn <= BACKSTAGE_PASSES_SELLIN_LIMIT3) {
-          incrementQuality(item, 3);
-        } else if (item.sellIn <= BACKSTAGE_PASSES_SELLIN_LIMIT2) {
-          incrementQuality(item, 2);
-        } else {
-           incrementQuality(item, 1);
-        }
-      } else {
-        // si ce n'est ni l'item "Agent Brie" ni l'item "Backstage passes"
-        decrementQuality(item);
-      }
-
       decrementSellIn(item);
 
-      if (item.sellIn < 0) {
-        if (item.name.equals(AGED_BRIE)) {
-          incrementQuality(item, 1);
-          // ici pour le Aged Brie périmé elle est incrémentée une 2e fois
+      if (item.name.equals(AGED_BRIE)) {
+        // si c'est l'item "Aged Brie" ou l'item "Backstage passes"
+        if (item.sellIn < 0) {
+          incrementQuality(item, 2);
         } else {
-          if (item.name.equals(BACKSTAGE_PASSES)) {
-            item.quality = 0;
-          } else {
-            decrementQuality(item);
-          }
+          incrementQuality(item, 1);
+        }
+      } else if (item.name.equals(BACKSTAGE_PASSES)) {
+        if (item.sellIn < 0) {
+          item.quality = 0;
+        } else if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT3) {
+          incrementQuality(item, 3);
+        } else if (item.sellIn < BACKSTAGE_PASSES_SELLIN_LIMIT2) {
+          incrementQuality(item, 2);
+        } else {
+          incrementQuality(item, 1);
+        }
+      } else {
+        // si ce n'est ni l'item "Aged Brie" ni l'item "Backstage passes"
+        if (item.sellIn < 0) {
+          decrementQuality(item, 2);
+        } else {
+          decrementQuality(item, 1);
         }
       }
     }
