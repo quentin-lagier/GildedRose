@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="4.1.1" sequence="0" timestamp="1604002896357" analysisTimestamp="1604002896384" release="0.0.1-SNAPSHOT">
+<BugCollection version="4.1.1" sequence="0" timestamp="1605460717025" analysisTimestamp="1605460717144" release="0.0.1-SNAPSHOT">
   <Project projectName="gilded-rose-kata (spotbugsTest)">
     <Jar>/mnt/d/GildedRose/build/classes/java/test/com/gildedrose/GildedRoseTest.class</Jar>
     <Jar>/mnt/d/GildedRose/build/classes/java/test/com/gildedrose/TexttestFixture.class</Jar>
@@ -15,7 +15,7 @@
     <SrcDir>/mnt/d/GildedRose/src/test/java</SrcDir>
   </Project>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Thu, 29 Oct 2020 21:21:36 +0100" total_classes="2" referenced_classes="19" total_bugs="0" total_size="355" num_packages="1" java_version="1.8.0_272" vm_version="25.272-b10" cpu_seconds="7.66" clock_seconds="11.08" peak_mbytes="228.40" alloc_mbytes="455.50" gc_seconds="0.07">
+  <FindBugsSummary timestamp="Sun, 15 Nov 2020 18:18:37 +0100" total_classes="2" referenced_classes="19" total_bugs="0" total_size="355" num_packages="1" java_version="1.8.0_275" vm_version="25.275-b01" cpu_seconds="14.11" clock_seconds="10.50" peak_mbytes="165.16" alloc_mbytes="455.50" gc_seconds="0.11">
     <FileStats path="com/gildedrose/GildedRoseTest.java" bugCount="0" size="335"/>
     <FileStats path="com/gildedrose/TexttestFixture.java" bugCount="0" size="20"/>
     <PackageStats package="com.gildedrose" total_bugs="0" total_types="2" total_size="355">
@@ -23,7 +23,7 @@
       <ClassStats class="com.gildedrose.TexttestFixture" sourceFile="TexttestFixture.java" interface="false" size="20" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="9333" invocations="410" avgMicrosecondsPerInvocation="22765" maxMicrosecondsPerInvocation="64564" standardDeviationMicrosecondsPerInvocation="7246"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="8376" invocations="410" avgMicrosecondsPerInvocation="20431" maxMicrosecondsPerInvocation="66183" standardDeviationMicrosecondsPerInvocation="10246"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>

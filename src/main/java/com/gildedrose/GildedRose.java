@@ -24,8 +24,10 @@ class GildedRose {
   }
 
   private void decrementQuality(Item item, int n) {
-    if (item.quality > 0) {
+    if (item.quality - n >= 0) {
       item.quality -= n;
+    } else {
+      item.quality = 0;
     }
   }
 
@@ -80,6 +82,7 @@ class GildedRose {
 
       default:
         updateDefault(item);
+        break;
     }
   }
 

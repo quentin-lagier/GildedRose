@@ -2,12 +2,7 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.23.0" timestamp="2020-10-29T21:21:34.467">
-<file name="/mnt/d/GildedRose/src/main/java/com/gildedrose/GildedRose.java">
-<violation beginline="69" endline="83" begincolumn="5" endcolumn="5" rule="MissingBreakInSwitch" ruleset="Error Prone" package="com.gildedrose" class="GildedRose" method="updateOne" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#missingbreakinswitch" priority="3">
-A switch statement does not contain a break
-</violation>
-</file>
+    version="6.23.0" timestamp="2020-11-15T18:18:31.419">
 <file name="/mnt/d/GildedRose/src/main/java/com/gildedrose/Item.java">
 <violation beginline="5" endline="5" begincolumn="17" endcolumn="20" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="com.gildedrose" class="Item" variable="name" externalInfoUrl="https://pmd.github.io/pmd-6.23.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
